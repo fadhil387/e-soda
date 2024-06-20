@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soda DHUL - Minuman</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tambahkan tag link untuk ikon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <header>
+       
+        <h1>Soda DHUL</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Minuman</a></li>
+                <li><a href="#">Logout</a></li>
+                <li><a href="#">Sign Up/Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Minuman</h2>
+        <div class="products">
+            <div class="product">
+                <img src="img/soda_cola.jpg" alt="Soda Cola">
+                <h3>Soda Cola</h3>
+                <p>soda yang membuat anda ceria</p>
+                <p>Rp. 10.000</p>
+                <button onclick="orderProduct(1, 10000)">Order</button>
+            </div>
+            <div class="product">
+                <img src="img/soda_fantae.jpg" alt="Soda Fantae">
+                <h3>Soda Fantae</h3>
+                <p>soda yang membuat anda bangkit</p>
+                <p>Rp. 12.000</p>
+                <button onclick="orderProduct(2, 12000)">Order</button>
+            </div>
+            <div class="product">
+                <img src="img/soda_spirit.png" alt="Soda Spirit">
+                <h3>Soda Spirit</h3>
+                <p>soda yang membuat anda bersemangat</p>
+                <p>Rp. 11.000</p>
+                <button onclick="orderProduct(3, 11000)">Order</button>
+            </div>
+            <div class="product">
+                <img src="img/soda_epsi.jpg" alt="Soda Epsi">
+                <h3>Soda Epsi</h3>
+                <p>soda yang membuat anda merasa chill</p>
+                <p>Rp. 13.000</p>
+                <button onclick="orderProduct(4, 13000)">Order</button>
+            </div>
+            <!-- Tambahkan produk lainnya di sini -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Follow Us:</p>
+        <p>Alamat Hubungi Kami</p>
+        <p>© 2024.</p>
+    </footer>
+
+    <script>
+        function orderProduct(productId, price) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'order.php';
+
+            const productIdInput = document.createElement('input');
+            productIdInput.type = 'hidden';
+            productIdInput.name = 'product_id';
+            productIdInput.value = productId;
+
+            const priceInput = document.createElement('input');
+            priceInput.type = 'hidden';
+            priceInput.name = 'price';
+            priceInput.value = price;
+
+            form.appendChild(productIdInput);
+            form.appendChild(priceInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</body>
+</html>
